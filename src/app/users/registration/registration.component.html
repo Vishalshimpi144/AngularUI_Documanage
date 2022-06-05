@@ -1,0 +1,75 @@
+<div class="container py-4">
+<div class="row align-items-md-stretch">
+  <div class="col-md-6">
+    <div class="h-100 p-5 text-white bg-dark rounded-3">
+      <h2>Project</h2>
+      <p></p>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="h-100 p-5 bg-light border rounded-3">
+      <h4 class="text-center mb-5">Register New User</h4>
+      <form [formGroup]="service.formModel" autocomplete="false" (submit)="onSubmit()">
+        <div class="required">
+          <label class="form-label" for="FullName">Full Name</label>
+          <input type="text" id="txtFullname" class="form-control form-control-sm" formControlName="FullName"
+            required />
+          <label class="text-danger"
+            *ngIf="service.formModel.get('FullName')?.touched && service.formModel.get('FullName')?.errors">This field
+            is
+            required</label>
+        </div>
+
+        <div class="required">
+          <label class="form-label" for="UserName">User Name</label>
+          <input type="email" id="txtUserName" class="form-control form-control-sm" formControlName="UserName">
+          <label class="text-danger"
+            *ngIf="service.formModel.get('UserName')?.touched && service.formModel.get('UserName')?.errors">This field
+            is
+            required</label>
+        </div>
+
+        <div class="required">
+          <label class="form-label" for="Email">User Email</label>
+          <input type="email" id="txtEmail" class="form-control form-control-sm" formControlName="Email">
+          <label class="text-danger"
+            *ngIf="service.formModel.get('Email')?.touched && service.formModel.get('Email')?.errors">Enter valid
+            email</label>
+        </div>
+
+        <div formGroupName="Passwords">
+          <div class="required">
+            <label class="form-label" for="Password">Password</label>
+            <input type="password" id="txtPassword" class="form-control form-control-sm" formControlName="Password" />
+            <label class="text-danger"
+              *ngIf="service.formModel.get('Passwords.Password')?.touched && service.formModel.get('Passwords.Password')?.errors">This
+              field is required and min 4 digit</label>
+          </div>
+          <div class="required">
+            <label class="form-label" for="ConfirmPassword">Confirm password</label>
+            <input type="password" id="txtConfimPassword" class="form-control form-control-sm"
+              formControlName="ConfirmPassword" />
+            <!-- <label class="text-danger" *ngIf="service.formModel.get('Passwords.ConfirmPassword')?.touched && service.formModel.get('Passwords.ConfirmPassword')?.errors">This field is required</label> -->
+            <label class="text-danger"
+              *ngIf="service.formModel.get('Passwords.ConfirmPassword')?.touched && service.formModel.get('Passwords.ConfirmPassword')?.errors passwordsMismatched">Password
+              does not match</label>
+          </div>
+        </div>
+
+        <!-- <div class="form-check d-flex justify-content-center mb-5">
+          <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3cg" />
+          <label class="form-check-label" for="form2Example3g">
+            I agree all statements in <a href="#!" class="text-body"><u>Terms of service</u></a>
+          </label>
+        </div> -->
+
+        <div class="d-flex justify-content-center">
+          <button type="submit" class="btn btn-primary btn-sm gradient-custom-4 text-body"
+            [disabled]="!service.formModel.valid">Register</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+</div>

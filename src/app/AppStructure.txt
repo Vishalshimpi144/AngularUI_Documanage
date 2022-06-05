@@ -1,0 +1,17 @@
+src
++---App
+|   +--user
+|   |   |--user.componenet.ts|.html
+|   |   +--registration
+|   |   |--registration.componenet.ts|.html
+|   |   +--login
+|   |   |--login.componenet.ts|.html
+|   +--home
+|   |   |--home.componenet.ts|.html
+|   +--admin-panel
+|   |   |--admin-panel.componenet.ts|.html
+|   +--forbidden
+|   |   |--forbidden.componenet.ts|.html
+|
+|   +--services
+|   |   |--user.services.ts
